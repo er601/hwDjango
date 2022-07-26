@@ -1,0 +1,40 @@
+{% extends 'homepage.html' %}
+{% block content %}
+    <h1>Pricing Table</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolore eligendi, eveniet impedit odio placeat qui
+        quidem quis quo rerum saepe, soluta, tempore tenetur ullam!</p>
+
+    <div class="my-card">
+        {% for pricing in pricing_table %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">{{ pricing.type }}</h2>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    {{ pricing.description }}
+                </h6>
+                <p class="card-text">
+                    {% if pricing.support %}
+                    <b>Full Support: </b> Yes
+                    {% else %}
+                    <b>Full Support: </b> No
+                    {% endif %}
+                </p>
+                <p>
+                    <b>Duration: </b>
+                    {{ pricing.duration }}
+                    Days
+                </p>
+                <p>
+                    <b>Storage: </b>
+                    {{ pricing.storage }} GB
+                </p>
+                <p>
+                    ${{ pricing.price }}
+                </p>
+                <button class="btn btn-primary">BUY NOW</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="btn btn-primary"><a href="/">Go home</a></button>
+{% endblock %}

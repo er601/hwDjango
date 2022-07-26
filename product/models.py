@@ -11,3 +11,12 @@ class Product(models.Model):
 
 class Category(models.Model):
     category_name = models.CharField(max_length=150)
+
+
+class Price(models.Model):
+    type = models.CharField(max_length=10)
+    description = models.TextField()
+    support = models.BooleanField(default=False)
+    duration = models.PositiveIntegerField(default=30)
+    storage = models.IntegerField(default=10)
+    price = models.IntegerField()

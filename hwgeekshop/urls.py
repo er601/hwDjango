@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from product.views import homepage
+from product.views import all_categories, pricing_table, homepage
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('categories/', homepage),
-]
+    path('', homepage),
+    path('categories/', all_categories),
+    path('price/', pricing_table)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
